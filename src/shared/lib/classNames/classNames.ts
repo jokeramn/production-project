@@ -5,6 +5,6 @@ export function classNames(cls: string, mods: Mods = {}, additional: string[] = 
         cls,
         ...additional.filter(Boolean),
         Object.keys(mods)
-            .filter((key) => mods[key])
-    ].join(' ')
+            .filter((key) => mods[key]),
+    ].join(' ');
 }
