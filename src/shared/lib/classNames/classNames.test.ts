@@ -1,4 +1,4 @@
-import { classNames } from './classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 
 describe('classNames', () => {
     test('with only first params', () => {
@@ -10,16 +10,20 @@ describe('classNames', () => {
     test('with all params', () => {
         const expected = 'someClass hello1 hello2 kek';
 
-        expect(classNames('someClass', { kek: true }, ['hello1', 'hello2'])).toBe(expected);
+        expect(classNames('someClass', { kek: true }, ['hello1', 'hello2']))
+            .toBe(expected);
     });
     test('with mods false', () => {
         const expected = 'someClass hello1 hello2';
 
-        expect(classNames('someClass', { kek: false }, ['hello1', 'hello2'])).toBe(expected);
+        expect(classNames('someClass', { kek: false }, ['hello1', 'hello2']))
+            .toBe(expected);
     });
     test('with mods undefined', () => {
         const expected = 'someClass hello1 hello2';
+        const mods: undefined = undefined;
 
-        expect(classNames('someClass', { kek: undefined }, ['hello1', 'hello2'])).toBe(expected);
+        expect(classNames('someClass', { kek: mods }, ['hello1', 'hello2']))
+            .toBe(expected);
     });
 });
